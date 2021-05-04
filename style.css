@@ -9,7 +9,10 @@ ul{
 }
 :root{
     --first-color: ;
+    --light-color: ;
     --second-color: ;
+    --send-color: ;
+    --received-color: ;
 }
 /* TAGS */
 html{
@@ -96,7 +99,7 @@ h4{
     display: flex;
     align-items: center;
 }
-.search-bar input{
+.search-bar input, .user-type input{
     border-radius: 5px;
     border: 0
 }
@@ -121,6 +124,7 @@ h4{
 /* CENTRAL CHAT SECTION */
 .messages-container{
     background-image: url('imgs/mine.jpg');
+    padding: 40px;
 }
 .chat-container{
     display: flex;
@@ -128,22 +132,27 @@ h4{
 }
 .message-block
 {
-    min-height: 20px;
+    height: auto;
+    min-height: 50px;
     border-radius: 15px;
 }
 .message{
+    position: relative;
     max-width: 250px;
+    border-radius: 15px;
 }
 .sent{
-    background-color: greenyellow;
+    background-color: #DAFAC2;
     float: right;
 }
 .received{
     background-color: grey;
     float: left;
 }
-.message span{
-    display: inline-block;
+.user-type{
+    display: flex;
+    align-items: center;
+    background-color: #eeeeee;
 }
 /* UTILITIES */
 .flex-grow{
@@ -169,4 +178,26 @@ h4{
 }
 .padding-l-r{
     margin: 0px 15px;
+}
+.clearfix{
+    content: '';
+    clear: both;
+    display: table;
+}
+.triangle-sent{
+    position: absolute;
+    transform: translateX(60%);
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 40px 40px 0 0;
+    border-color: #DAFAC2 transparent transparent transparent;
+}
+.triangle-received{
+    
+}
+.scroll{
+    overflow: scroll;
 }

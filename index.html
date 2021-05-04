@@ -40,9 +40,9 @@
                 <label for="search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </label>
-                <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px full-width" id="search">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px full-width p-5px" id="search">
             </div>
-            <ul class="chat-list">
+            <ul class="chat-list" class="scroll">
                 <li v-for="" class="chat-preview p-10px">
                     <div class="user-img-container">
                         <img src="imgs/avatar_2.jpg" alt="">
@@ -63,7 +63,7 @@
             <div class="top-bar full-width ">
                 <div class="user-img-container"> <img src="imgs/avatar_3.jpg"> </div>
                 <div class="flex-grow padding-l-r">
-                    <h2> Fabio </h2>
+                    <h2> Bill </h2>
                     <div> Ultimo accesso oggi alle 17:53</div>
                 </div>
                 <div class="icon-buttons">
@@ -74,15 +74,33 @@
             </div>
             <div class="messages-container flex-grow">
                 <ul>
-                    <li class="message-block">
-                        <div class="message sent">
-                            <span> Purtroppo è andata così</span>
+                    <li class="message-block clearfix full-width">
+                        <div class="message  p-10px sent">
+                            <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore sunt repudiandae
+                                possimus nihil eligendi recusandae, saepe delectus facere molestias pariatur quo?
+                                Voluptatem molestiae voluptatibus ab a corporis suscipit eos modi?</span>
+                            <div class="triangle-sent"></div>
                         </div>
                     </li>
-                    <li class="message received"><span>Non poteva essere altrimenti</span></li>
+                    <li class="message-block">
+                        <div class="message received p-10px">
+                            <span> Oh shit!</span>
+                        </div>
+                    </li>
                 </ul>
             </div>
-            <div class="user-type"></div>
+            <div class="user-type p-10px">
+                <div>
+                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                </div>
+                <div class="flex-grow padding-l-r">
+                    <input type="text" placeholder="Scrivi un messaggio" class="full-width p-10px">
+                </div>
+                <div>
+                    <i class="fa fa-microphone" aria-hidden="true"></i>
+                </div>
+
+            </div>
         </section>
     </main>
 </body>
