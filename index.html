@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="data.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <title>Document</title>
@@ -16,10 +17,10 @@
     <div class="background full-width">
         <div></div>
     </div>
-    <main>
+    <main id="vueContainer">
         <section class="left">
             <div class="top-bar">
-                <div class="user-img-container"> <img src="imgs/avatar_1.jpg"> </div>
+                <div class="user-img-container"> <img src="imgs/avatar_1.jpg" alt="avatar"> </div>
                 <div class="flex-grow"></div>
                 <div class="icon-buttons">
                     <i class="fa fa-comment" aria-hidden="true"></i>
@@ -43,26 +44,28 @@
                 <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px full-width p-5px"
                     id="search">
             </div>
-            <ul class="chat-list" class="scroll">
-                <li v-for="" class="chat-preview p-10px">
-                    <div class="user-img-container">
-                        <img src="imgs/avatar_2.jpg" alt="">
-                    </div>
-                    <div class="p-10px">
-                        <h3> Fabio </h3>
-                        <div class="last-message"> Ciao, come stai?</div>
-                    </div>
-                    <div class="last-message-hour second-color">
-                        12:30
-                    </div>
+            <div class="fix scroll">
+                <ul class="chat-list">
+                    <li v-for="user of usersList" :key="user.id" class="chat-preview p-10px">
+                        <div class="user-img-container">
+                            <img v-bind:src="'imgs/avatar' + user.avatar + '.jpg'" alt="img">
+                        </div>
+                        <div class="p-10px">
+                            <h3> {{user.name}} </h3>
+                            <div class="last-message"> Ciao, come stai?</div>
+                        </div>
+                        <div class="last-message-hour second-color">
+                            12:30
+                        </div>
 
-                </li>
-                </div>
+                    </li>
+                </ul>
+            </div>
         </section>
         <!-- CENTRAL MESSAGES SECTION -->
         <section class="chat-container flex-grow">
             <div class="top-bar full-width ">
-                <div class="user-img-container"> <img src="imgs/avatar_3.jpg"> </div>
+                <div class="user-img-container"> <img src="imgs/avatar_3.jpg" alt="avatar"> </div>
                 <div class="flex-grow padding-l-r">
                     <h2> Bill </h2>
                     <div> Ultimo accesso oggi alle 17:53</div>
@@ -76,14 +79,16 @@
             <div class="messages-container flex-grow">
                 <ul>
                     <li class="message-block clearfix full-width">
-                        <div class="message  p-10px sent">
+                        <div class="message  p-15px sent">
                             <span> EHI!</span>
+                            <div class="message-time"> 00:00</div>
                             <div class="triangle-sent"></div>
                         </div>
                     </li>
                     <li class="message-block">
-                        <div class="message received p-10px">
+                        <div class="message received p-15px">
                             <span> Oh shit!</span>
+                            <div class="message-time"> 00:00</div>
                             <div class="triangle-received"></div>
                         </div>
                     </li>

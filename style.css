@@ -65,12 +65,14 @@ h4{
 .left{
     width: 30%;
     background-color: #eeeeee;
+    display: flex;
+    flex-direction: column;
 }
 .top-bar{
     padding: 10px;
     display: flex;
     align-items: center;
-    background-color: #dce0db;
+    background-color: #eeeeee;
 }
 .icon-buttons i{
     color: #6666;
@@ -104,6 +106,7 @@ h4{
     border: 0
 }
 .chat-preview{
+    background-color: white;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -115,7 +118,7 @@ h4{
     color: grey;
 }
 .icon-buttons{
-    font-size: 25px;
+    font-size: 20px;
 }
 .icon-buttons i{
     margin-left: 5px;
@@ -124,7 +127,7 @@ h4{
 /* CENTRAL CHAT SECTION */
 .messages-container{
     background-image: url('imgs/mine.jpg');
-    padding: 40px;
+    padding: 50px;
 }
 .chat-container{
     display: flex;
@@ -137,23 +140,34 @@ h4{
     border-radius: 15px;
 }
 .message{
+    min-width: 75px;
     position: relative;
     max-width: 250px;
     border-radius: 15px;
+    padding: 17px 15px;
 }
 .sent{
     background-color: #DAFAC2;
     float: right;
 }
 .received{
-    background-color: grey;
+    background-color: #eeeeee;
     float: left;
+}
+.message-time{
+    position: absolute;
+    right: 7px;
+    bottom: 5px;
+    font-size: 10px;
+    color: grey;
+
 }
 .user-type{
     display: flex;
     align-items: center;
     background-color: #eeeeee;
 }
+
 /* UTILITIES */
 .flex-grow{
     flex-grow: 1;
@@ -192,12 +206,25 @@ h4{
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 40px 40px 0 0;
+    border-width: 25px 25px 0 0;
     border-color: #DAFAC2 transparent transparent transparent;
 }
 .triangle-received{
-    
+    z-index: 0;
+    position: absolute;
+    transform: translateX(-60%);
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 25px 25px 0;
+    border-color: transparent #eeeeee transparent transparent;
 }
 .scroll{
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.fix{
+    flex-grow: 1;
 }
