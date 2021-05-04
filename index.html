@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script src="data.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <title>Document</title>
@@ -46,7 +45,7 @@
             </div>
             <div class="fix scroll">
                 <ul class="chat-list">
-                    <li v-for="user of usersList" :key="user.id" class="chat-preview p-10px">
+                    <li v-for="user of usersList" :key="user.id" class="chat-preview p-10px" @click="setActiveChat(user.avatar)">
                         <div class="user-img-container">
                             <img v-bind:src="'imgs/avatar' + user.avatar + '.jpg'" alt="img">
                         </div>
@@ -108,6 +107,7 @@
             </div>
         </section>
     </main>
+    <script src="data.js"></script>
 </body>
 
 </html>

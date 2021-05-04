@@ -1,6 +1,6 @@
 const globalUsersList = [
     {
-        name: 'Michele',
+        name: 'Michele Scalzo',
         avatar: '_1',
         visible: true,
         messages: [
