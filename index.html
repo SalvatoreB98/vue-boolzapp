@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="background">
+    <div class="background full-width">
         <div></div>
     </div>
     <main>
@@ -29,7 +29,7 @@
             </div>
             <div class="notification-status block">
                 <div class="bell-container">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
+                    <i class="fa fa-bell-slash" aria-hidden="true"></i>
                 </div>
                 <div class="p-10px">
                     <h4>Ricevi notifiche di nuovi messaggi</h4>
@@ -40,31 +40,46 @@
                 <label for="search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </label>
-                <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px" id="search">
+                <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px full-width" id="search">
             </div>
             <ul class="chat-list">
                 <li v-for="" class="chat-preview p-10px">
                     <div class="user-img-container">
                         <img src="imgs/avatar_2.jpg" alt="">
                     </div>
-                    <div class="p-10px"> 
+                    <div class="p-10px">
                         <h3> Fabio </h3>
                         <div class="last-message"> Ciao, come stai?</div>
                     </div>
-                    <div class="last-message-hour">
+                    <div class="last-message-hour second-color">
                         12:30
                     </div>
 
                 </li>
                 </div>
         </section>
-        
-        <section class="chat-container">
-            <div class="top-bar"></div>
-            <div class="messages-container">
+        <!-- CENTRAL MESSAGES SECTION -->
+        <section class="chat-container flex-grow">
+            <div class="top-bar full-width ">
+                <div class="user-img-container"> <img src="imgs/avatar_3.jpg"> </div>
+                <div class="flex-grow padding-l-r">
+                    <h2> Fabio </h2>
+                    <div> Ultimo accesso oggi alle 17:53</div>
+                </div>
+                <div class="icon-buttons">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <i class="fa fa-paperclip" aria-hidden="true"></i>
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="messages-container flex-grow">
                 <ul>
-                    <li class="sent"></li>
-                    <li class="received"></li>
+                    <li class="message-block">
+                        <div class="message sent">
+                            <span> Purtroppo è andata così</span>
+                        </div>
+                    </li>
+                    <li class="message received"><span>Non poteva essere altrimenti</span></li>
                 </ul>
             </div>
             <div class="user-type"></div>
