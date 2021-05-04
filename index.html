@@ -1,30 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <title>Document</title>
 </head>
+
 <body>
-    <div class="background"> 
+    <div class="background">
         <div></div>
     </div>
     <main>
         <section class="left">
-            <div class="top-bar"></div>
-            <div class="notification-status"></div>
-            <div class="search-bar"></div>
-            <ul class="chat-list">
-                <li v-for="" class="contact-chat"></li>
+            <div class="top-bar">
+                <div class="user-img-container"> <img src="imgs/avatar_1.jpg"> </div>
+                <div class="flex-grow"></div>
+                <div class="icon-buttons">
+                    <i class="fa fa-comment" aria-hidden="true"></i>
+                    <i class="fa fa-circle-o-notch" aria-hidden="true"></i>
+                    <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                </div>
             </div>
+            <div class="notification-status block">
+                <div class="bell-container">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                </div>
+                <div class="p-10px">
+                    <h4>Ricevi notifiche di nuovi messaggi</h4>
+                    <a href="#">Attiva notifiche desktop</a>
+                </div>
+            </div>
+            <div class="search-bar p-5px">
+                <label for="search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </label>
+                <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px" id="search">
+            </div>
+            <ul class="chat-list">
+                <li v-for="" class="chat-preview p-10px">
+                    <div class="user-img-container">
+                        <img src="imgs/avatar_2.jpg" alt="">
+                    </div>
+                    <div class="p-10px"> 
+                        <h3> Fabio </h3>
+                        <div class="last-message"> Ciao, come stai?</div>
+                    </div>
+                    <div class="last-message-hour">
+                        12:30
+                    </div>
+
+                </li>
+                </div>
         </section>
+        
         <section class="chat-container">
             <div class="top-bar"></div>
+            <div class="messages-container">
+                <ul>
+                    <li class="sent"></li>
+                    <li class="received"></li>
+                </ul>
+            </div>
+            <div class="user-type"></div>
         </section>
     </main>
 </body>
+
 </html>
