@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -45,13 +46,14 @@
             </div>
             <div class="fix scroll">
                 <ul class="chat-list">
-                    <li v-for="user of usersList" :key="user.id" class="chat-preview p-10px" @click="setActiveChat(user.avatar)">
+                    <li v-for="user of usersList" :key="user.id" class="chat-preview p-10px"
+                        @click="setActiveChat(user.avatar)">
                         <div class="user-img-container">
                             <img v-bind:src="'imgs/avatar' + user.avatar + '.jpg'" alt="img">
                         </div>
-                        <div class="p-10px">
+                        <div class="p-10px flex-grow">
                             <h3> {{user.name}} </h3>
-                            <div class="last-message"> Ciao, come stai?</div>
+                            <div class="last-message"> {{ user.messages[user.messages.length-1].text }} </div>
                         </div>
                         <div class="last-message-hour second-color">
                             12:30
@@ -66,7 +68,7 @@
             <div class="top-bar full-width ">
                 <div class="user-img-container"> <img src="imgs/avatar_3.jpg" alt="avatar"> </div>
                 <div class="flex-grow padding-l-r">
-                    <h2> Bill </h2>
+                    <h2 v-if="">{{ usersList[activeChat].name}} </h2>
                     <div> Ultimo accesso oggi alle 17:53</div>
                 </div>
                 <div class="icon-buttons">
@@ -77,20 +79,16 @@
             </div>
             <div class="messages-container flex-grow">
                 <ul>
-                    <li class="message-block clearfix full-width">
-                        <div class="message  p-15px sent">
-                            <span> EHI!</span>
-                            <div class="message-time"> 00:00</div>
-                            <div class="triangle-sent"></div>
+                    <li class="message-block clearfix full-width" v-for="message of usersList[activeChat].messages"
+                        :key="message.id">
+                        <div class="message p-15px" v-bind:class="message.status">
+                            <span> {{ message.text }} </span>
+                            <div class="message-time"> {{getTimeHm(message.date)}} </div>
+                            <div v-if="message.status=='sent'" class="triangle-sent"></div>
+                            <div v-else class="triangle-received"></div>
                         </div>
                     </li>
-                    <li class="message-block">
-                        <div class="message received p-15px">
-                            <span> Oh shit!</span>
-                            <div class="message-time"> 00:00</div>
-                            <div class="triangle-received"></div>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
             <div class="user-type p-10px">
