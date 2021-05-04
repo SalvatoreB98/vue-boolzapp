@@ -3,16 +3,22 @@ window.addEventListener("load",function(){
         el: '#vueContainer',
         data:{
             usersList: globalUsersList,
-            activeChat : 0
+            activeChat : 0,
+            isChatOpen: false
         },
         methods:{
-            setActiveChat(user){
-                this.activeChat = parseInt(user.substring(1)) - 1;
+            setActiveChat(id){
+                this.activeChat = id;
             },
             getTimeHm(date){
                 return moment(date).format("HH:mm")
             },
-
+            chatOpen(){
+                this.isChatOpen = true;
+            },
+            chatClose(){
+                this.isChatOpen = false;
+            }
         }
     })
 });

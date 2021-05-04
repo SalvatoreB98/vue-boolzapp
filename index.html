@@ -18,9 +18,9 @@
         <div></div>
     </div>
     <main id="vueContainer">
-        <section class="left">
+        <section class="left" :class=" isChatOpen ? 'not-active' : 'active' ">
             <div class="top-bar">
-                <div class="user-img-container"> <img src="imgs/avatar_1.jpg" alt="avatar"> </div>
+                <div class="user-img-container"> <img src="imgs/avatar_0.jpg" alt="avatar"> </div>
                 <div class="flex-grow"></div>
                 <div class="icon-buttons">
                     <i class="fa fa-comment" aria-hidden="true"></i>
@@ -46,8 +46,8 @@
             </div>
             <div class="fix scroll">
                 <ul class="chat-list">
-                    <li v-for="user of usersList" :key="user.id" class="chat-preview p-10px"
-                        @click="setActiveChat(user.avatar)">
+                    <li v-for="(user,index) of usersList" :key="user.id" class="chat-preview p-10px"
+                        @click="setActiveChat(index); chatOpen()" :class=" {'selected' : index == activeChat } ">
                         <div class="user-img-container">
                             <img v-bind:src="'imgs/avatar' + user.avatar + '.jpg'" alt="img">
                         </div>
@@ -64,9 +64,13 @@
             </div>
         </section>
         <!-- CENTRAL MESSAGES SECTION -->
-        <section class="chat-container flex-grow">
+        <section class="chat-container flex-grow hidden-xs" :class=" isChatOpen ? 'active' : 'not-active' ">
             <div class="top-bar full-width ">
-                <div class="user-img-container"> <img src="imgs/avatar_3.jpg" alt="avatar"> </div>
+                <div class="back-arrow">
+                    <i @click="chatClose()" class="fa fa-arrow-left" aria-hidden="true"></i> 
+                </div>
+                <div class="user-img-container"> <img :src="'imgs/avatar_' + activeChat + '.jpg'"
+                        alt="avatar"> </div>
                 <div class="flex-grow padding-l-r">
                     <h2 v-if="">{{ usersList[activeChat].name}} </h2>
                     <div> Ultimo accesso oggi alle 17:53</div>
@@ -77,7 +81,7 @@
                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="messages-container flex-grow">
+            <div class="messages-container scroll flex-grow">
                 <ul>
                     <li class="message-block clearfix full-width" v-for="message of usersList[activeChat].messages"
                         :key="message.id">

@@ -64,6 +64,7 @@ h4{
 }
 .left{
     width: 30%;
+    min-width: 300px;
     background-color: #eeeeee;
     display: flex;
     flex-direction: column;
@@ -124,6 +125,9 @@ h4{
     margin-right: 5px;
 }
 /* CENTRAL CHAT SECTION */
+.back-arrow{
+    display: none;
+}
 .messages-container{
     background-image: url('imgs/mine.jpg');
     padding: 50px;
@@ -228,7 +232,47 @@ h4{
 .fix{
     flex-grow: 1;
 }
+.selected{
+    background-color: #d4d4d4e8;
+}
+
 /* HOVER */
 .chat-preview:hover{
     background-color: #d4d4d4e8;
+}
+/* SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+@media screen and (max-width:800px) {
+    main{
+        width: 100vw;
+        height: 100vh;
+    }
+    .hidden-xs{
+        display: none;
+    }
+    .left{
+        width: 100%;
+    }
+    .back-arrow{
+        display: block;
+    }
+    .active{
+        display: flex;
+    }
+    .not-active{
+        display: none;
+    }
 }
