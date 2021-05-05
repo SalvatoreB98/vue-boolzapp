@@ -41,7 +41,7 @@
                 <label for="search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </label>
-                <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px full-width p-5px"
+                <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px full-width p-10px"
                     id="search">
             </div>
             <div class="fix scroll">
@@ -66,11 +66,10 @@
         <!-- CENTRAL MESSAGES SECTION -->
         <section class="chat-container flex-grow hidden-xs" :class=" isChatOpen ? 'active' : 'not-active' ">
             <div class="top-bar full-width ">
-                <div class="back-arrow">
-                    <i @click="chatClose()" class="fa fa-arrow-left" aria-hidden="true"></i> 
+                <div @click="chatClose()" class="back-arrow">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
                 </div>
-                <div class="user-img-container"> <img :src="'imgs/avatar_' + activeChat + '.jpg'"
-                        alt="avatar"> </div>
+                <div class="user-img-container"> <img :src="'imgs/avatar_' + activeChat + '.jpg'" alt="avatar"> </div>
                 <div class="flex-grow padding-l-r">
                     <h2 v-if="">{{ usersList[activeChat].name}} </h2>
                     <div> Ultimo accesso oggi alle 17:53</div>
@@ -100,7 +99,7 @@
                     <i class="fa fa-smile-o" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow padding-l-r">
-                    <input type="text" placeholder="Scrivi un messaggio" class="full-width p-10px">
+                    <input type="text" placeholder="Scrivi un messaggio" class="full-width p-10px" v-model="textInput" @keydown.enter="sendMessage()">
                 </div>
                 <div>
                     <i class="fa fa-microphone" aria-hidden="true"></i>

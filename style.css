@@ -8,10 +8,9 @@ ul{
     list-style-type: none;
 }
 :root{
-    --first-color: ;
-    --light-color: ;
-    --second-color: ;
-    --send-color: ;
+    --first-color: #eeeeee ;
+    --second-color: grey ;
+    --sent-color: #d7ffc4 ;
     --received-color: ;
 }
 /* TAGS */
@@ -66,7 +65,7 @@ h4{
 .left{
     width: 30%;
     min-width: 300px;
-    background-color: #eeeeee;
+    background-color: var(--first-color);
     display: flex;
     flex-direction: column;
 }
@@ -74,7 +73,7 @@ h4{
     padding: 10px;
     display: flex;
     align-items: center;
-    background-color: #eeeeee;
+    background-color: var(--first-color);
 }
 .icon-buttons i{
     color: #6666;
@@ -88,7 +87,7 @@ h4{
 }
 .bell-container{
     border-radius: 50%;
-    background-color: rgb(233, 233, 233);
+    background-color: var(--first-color);
 }
 .bell-container i{
     padding: 20px;
@@ -113,10 +112,11 @@ h4{
     align-items: center;
     font-size: 13px;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 .last-message{
     font-size: 15px;
-    color: grey;
+    color: var(--second-color);
 }
 .icon-buttons{
     font-size: 20px;
@@ -156,11 +156,11 @@ i{
     padding: 17px 15px;
 }
 .sent{
-    background-color: #DAFAC2;
+    background-color: var(--sent-color);
     float: right;
 }
 .received{
-    background-color: #eeeeee;
+    background-color: var(--first-color);
     float: left;
 }
 .message-time{
@@ -168,13 +168,13 @@ i{
     right: 7px;
     bottom: 5px;
     font-size: 10px;
-    color: grey;
+    color: var(--second-color);
 
 }
 .user-type{
     display: flex;
     align-items: center;
-    background-color: #eeeeee;
+    background-color: var(--first-color);
 }
 
 /* UTILITIES */
@@ -194,7 +194,7 @@ i{
     margin: 10px;
 }
 .second-color{
-    color: grey;
+    color: var(--second-color);
 }
 .full-width{
     width: 100%;
@@ -216,7 +216,7 @@ i{
     height: 0;
     border-style: solid;
     border-width: 25px 25px 0 0;
-    border-color: #DAFAC2 transparent transparent transparent;
+    border-color: var(--sent-color) transparent transparent transparent;
 }
 .triangle-received{
     z-index: 0;
@@ -228,7 +228,7 @@ i{
     height: 0;
     border-style: solid;
     border-width: 0 25px 25px 0;
-    border-color: transparent #eeeeee transparent transparent;
+    border-color: transparent var(--first-color) transparent transparent;
 }
 .scroll{
     overflow-y: scroll;
@@ -244,6 +244,9 @@ i{
 /* HOVER */
 .chat-preview:hover{
     background-color: #d4d4d4e8;
+}
+.back-arrow:hover i{
+    color: #535353d3;
 }
 i:hover{
     color: #535353d3;
@@ -261,7 +264,8 @@ i:hover{
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #cecece; 
+    border-radius: 10px;
   }
 @media screen and (max-width:800px) {
     main{

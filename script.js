@@ -4,7 +4,12 @@ window.addEventListener("load",function(){
         data:{
             usersList: globalUsersList,
             activeChat : 0,
-            isChatOpen: false
+            isChatOpen: false,
+            textInput: "",
+            date: ''
+        },
+        computed:{
+
         },
         methods:{
             setActiveChat(id){
@@ -18,6 +23,13 @@ window.addEventListener("load",function(){
             },
             chatClose(){
                 this.isChatOpen = false;
+            },
+            sendMessage(){
+                let date = moment()
+               this.usersList[this.activeChat].messages.push({
+                                                                date: date, 
+                                                                text: this.textInput,  
+                                                                status: 'sent'})
             }
         }
     })
