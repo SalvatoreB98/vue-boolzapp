@@ -136,10 +136,37 @@ i{
 .messages-container{
     background-image: url('imgs/mine.jpg');
     padding: 50px;
+    position: relative;
+}
+.message-menu{
+    width: 250px;
+    position: absolute;
+    background-color: var(--first-color);
+    z-index: 3;
+    box-shadow: 2px 2px 15px #0000004d;
+}
+.message-menu div{
+    overflow: hidden;
+    position: relative;
+}
+.message-menu i.fa{
+    position: absolute;
+    top: 7.5px;
+    right: -50px;
+    transition: transform 0.2s ease-in-out;
+}
+.remove, .info{
+    padding: 5px 0;
+}
+.remove i{
+    color: rgb(235, 81, 81);
+}
+.info i{
+    color: rgb(83, 83, 195);
 }
 .chat-container{
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 .message-block
 {
@@ -169,6 +196,14 @@ i{
     font-size: 10px;
     color: var(--second-color);
 
+}
+.option{
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 4px;
+    color: grey;
+    cursor: pointer;
 }
 .user-type{
     display: flex;
@@ -242,6 +277,10 @@ i{
 .cursor-pointer{
     cursor: pointer;
 }
+
+
+
+
 /* HOVER */
 .chat-preview:hover{
     background-color: #d4d4d4e8;
@@ -252,6 +291,15 @@ i{
 i:hover{
     color: #535353d3;
 }
+.message:hover .option{
+    display: block;
+}
+.remove:hover i, .info:hover i{
+    transform: translateX(-50px);
+}
+
+
+
 /* SCROLLBAR */
 /* width */
 ::-webkit-scrollbar {

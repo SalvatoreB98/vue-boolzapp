@@ -17,7 +17,7 @@
     <div class="background full-width">
         <div></div>
     </div>
-    <main id="vueContainer">
+    <main id="vueContainer" @click="reset()">
         <section class="left" :class=" isChatOpen ? 'not-active' : 'active' ">
             <div class="top-bar">
                 <div class="user-img-container"> <img src="imgs/avatar_io1.jpg" alt="avatar"> </div>
@@ -80,15 +80,25 @@
                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="messages-container scroll flex-grow" id="messages-container">
+            <div class="messages-container scroll flex-grow" id="messages-container" >
                 <ul>
-                    <li class="message-block clearfix full-width" v-for="message of usersList[activeChat].messages"
-                        :key="message.id">
+                    <li class="message-block clearfix full-width"
+                        v-for="(message,index) of usersList[activeChat].messages" :key="message.id">
                         <div class="message p-15px" v-bind:class="message.status">
                             <span> {{ message.text }} </span>
                             <div class="message-time"> {{getTimeHm(message.date)}} </div>
                             <div v-if="message.status=='sent'" class="triangle-sent"></div>
                             <div v-else class="triangle-received"></div>
+                            <div class="option" @click="clickOption(index)"><i class="fa fa-chevron-down"
+                                    aria-hidden="true"></i></div>
+                            <div class="message-menu p-10px"
+                                :style="message.status=='sent' ? 'left:auto; right: 50%; top: 50% '  : ' top: 50%; left: 50%;' "
+                                v-if="indexMenuOpen == index">
+
+                                <div class="remove cursor-pointer" @click="remove(index)"> Delete message <i class="fa fa-trash" aria-hidden="true"></i></div>
+                                <div class="info cursor-pointer" > Info <i class="fa fa-info-circle" aria-hidden="true"></i> </div>
+
+                            </div>
                         </div>
                     </li>
 

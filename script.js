@@ -7,7 +7,9 @@ window.addEventListener("load", function () {
             isChatOpen: false,
             textInput: "",
             date: '',
-            searchInput : ''
+            searchInput: '',
+            indexMenuOpen: null,
+            isMenuOpen: false
         },
         computed: {
 
@@ -26,15 +28,15 @@ window.addEventListener("load", function () {
                 this.isChatOpen = false;
             },
             sendMessage() {
-                if(this.textInput!==""){
+                if (this.textInput !== "") {
                     let date = moment()
-                this.usersList[this.activeChat].messages.push({
-                    date: date,
-                    text: this.textInput,
-                    status: 'sent'
-                });
-                this.textInput = '';
-                this.serverAnswer();
+                    this.usersList[this.activeChat].messages.push({
+                        date: date,
+                        text: this.textInput,
+                        status: 'sent'
+                    });
+                    this.textInput = '';
+                    this.serverAnswer();
                 }
             },
             serverAnswer() {
@@ -48,8 +50,31 @@ window.addEventListener("load", function () {
                 }, 1000);
 
             },
-            search(searchInput){
+            search(searchInput) {
                 return this.usersList.filter((element) => element.name.toLowerCase().includes(searchInput.toLowerCase()));
+            },
+            clickOption(index) {
+                if (this.indexMenuOpen == null) {
+                    this.indexMenuOpen = index;
+                    setTimeout(()=>{
+                        this.isMenuOpen = true;
+                    },100)
+                }
+                else{
+                    this.indexMenuOpen = null;
+                    this.isMenuOpen = false;
+                }
+
+            },
+            reset(){
+              if(this.isMenuOpen==true){
+                  this.isMenuOpen = false;
+                  this.indexMenuOpen = null;
+              }  
+            },
+            remove(index){
+                this.usersList[this.activeChat].messages.splice(index,1)
+                console.log( this.usersList[this.activeChat].messages[index])
             }
         }
     })
