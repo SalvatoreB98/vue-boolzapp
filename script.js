@@ -1,4 +1,8 @@
 window.addEventListener("load", function () {
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     const vueContainer = new Vue({
         el: '#vueContainer',
         data: {
@@ -38,6 +42,7 @@ window.addEventListener("load", function () {
                     this.textInput = '';
                     this.serverAnswer();
                 }
+                this.scroll();
             },
             serverAnswer() {
                 setTimeout(() => {
@@ -47,6 +52,7 @@ window.addEventListener("load", function () {
                         text: "OK!",
                         status: 'received'
                     });
+                    this.scroll();
                 }, 1000);
 
             },
@@ -56,26 +62,36 @@ window.addEventListener("load", function () {
             clickOption(index) {
                 if (this.indexMenuOpen == null) {
                     this.indexMenuOpen = index;
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         this.isMenuOpen = true;
-                    },100)
+                    }, 100)
                 }
-                else{
+                else {
                     this.indexMenuOpen = null;
                     this.isMenuOpen = false;
                 }
 
             },
-            reset(){
-              if(this.isMenuOpen==true){
-                  this.isMenuOpen = false;
-                  this.indexMenuOpen = null;
-              }  
+            reset() {
+                if (this.isMenuOpen == true) {
+                    this.isMenuOpen = false;
+                    this.indexMenuOpen = null;
+                }
             },
-            remove(index){
-                this.usersList[this.activeChat].messages.splice(index,1)
-                console.log( this.usersList[this.activeChat].messages[index])
+            remove(index) {
+                this.usersList[this.activeChat].messages.splice(index, 1)
+                console.log(this.usersList[this.activeChat].messages[index])
+            },
+            scroll() {
+                setTimeout(() => {
+                    var containerToScroll = document.getElementById("messages-container");
+                    containerToScroll.scrollTop = containerToScroll.scrollHeight;
+                }, 100)
+
             }
+        },
+        mounted() {
+            this.scroll();
         }
     })
 });
