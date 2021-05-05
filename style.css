@@ -11,7 +11,6 @@ ul{
     --first-color: #eeeeee ;
     --second-color: grey ;
     --sent-color: #d7ffc4 ;
-    --received-color: ;
 }
 /* TAGS */
 html{
@@ -75,8 +74,9 @@ h4{
     align-items: center;
     background-color: var(--first-color);
 }
-.icon-buttons i{
+.icon-buttons .fa{
     color: #6666;
+    cursor:not-allowed ;
 }
 .notification-status{
     display: flex;
@@ -211,7 +211,10 @@ i{
     align-items: center;
     background-color: var(--first-color);
 }
-
+.user-type .fa{
+    font-size: 25px;
+    color: rgb(100, 100, 100);
+}
 /* UTILITIES */
 .flex-grow{
     flex-grow: 1;
@@ -318,7 +321,7 @@ i:hover{
 @media screen and (max-width:800px) {
     main{
         width: 100vw;
-        height: 100vh;
+        height: calc(100vh - 35px);
     }
     .hidden-xs{
         display: none;

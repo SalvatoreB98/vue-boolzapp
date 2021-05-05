@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="imgs/whatsapp.png"/>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
@@ -46,14 +47,14 @@
             </div>
             <div class="fix scroll">
                 <ul class="chat-list">
-                    <li v-for="(user,index) of search(searchInput)" :key="user.id" class="chat-preview p-10px" v-if=""
+                    <li  v-for="(user,index) of search(searchInput)" :key="user.id" class="chat-preview p-10px" v-if=""
                         @click="setActiveChat(index); chatOpen()" :class=" {'selected' : index == activeChat }">
                         <div class="user-img-container">
                             <img v-bind:src="'imgs/avatar' + user.avatar + '.jpg'" alt="img">
                         </div>
                         <div class="p-10px flex-grow">
                             <h3> {{user.name}} </h3>
-                            <div class="last-message"> {{ user.messages[user.messages.length-1].text }} </div>
+                            <div  class="last-message"> {{ user.messages[user.messages.length-1].text }} </div>
                         </div>
                         <div class="last-message-hour second-color">
                             {{ getTimeHm(user.messages[user.messages.length-1].date) }}
