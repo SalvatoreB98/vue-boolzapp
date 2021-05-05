@@ -80,11 +80,11 @@
                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="messages-container scroll flex-grow">
+            <div class="messages-container scroll flex-grow" id="messages-container">
                 <ul>
                     <li class="message-block clearfix full-width" v-for="message of usersList[activeChat].messages"
-                        :key="message.id">
-                        <div class="message p-15px" v-bind:class="message.status">
+                        :key="message.id"  >
+                        <div class="message p-15px" v-bind:class="message.status" >
                             <span> {{ message.text }} </span>
                             <div class="message-time"> {{getTimeHm(message.date)}} </div>
                             <div v-if="message.status=='sent'" class="triangle-sent"></div>
