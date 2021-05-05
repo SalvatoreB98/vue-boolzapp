@@ -145,14 +145,13 @@ i{
 {
     height: auto;
     min-height: 50px;
-    border-radius: 15px;
     margin: 10px 0px
 }
 .message{
     min-width: 75px;
     position: relative;
     max-width: 250px;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 17px 15px;
 }
 .sent{
