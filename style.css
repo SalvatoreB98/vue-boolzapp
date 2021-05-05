@@ -28,6 +28,7 @@ main{
     background-color: rgb(255, 255, 255);
     display: flex;
     gap: 0;
+    box-shadow: 3px 3px 20px #000000b7;
 
 }
 h2{
@@ -120,9 +121,13 @@ h4{
 .icon-buttons{
     font-size: 20px;
 }
+i{
+    cursor: pointer;
+}
 .icon-buttons i{
     margin-left: 5px;
     margin-right: 5px;
+    cursor: pointer;
 }
 /* CENTRAL CHAT SECTION */
 .back-arrow{
@@ -240,6 +245,9 @@ h4{
 .chat-preview:hover{
     background-color: #d4d4d4e8;
 }
+i:hover{
+    color: #535353d3;
+}
 /* SCROLLBAR */
 /* width */
 ::-webkit-scrollbar {
@@ -248,7 +256,7 @@ h4{
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f100; 
   }
    
   /* Handle */
@@ -268,6 +276,8 @@ h4{
     }
     .back-arrow{
         display: block;
+        cursor: pointer;
+        padding: 20px;
     }
     .active{
         display: flex;
