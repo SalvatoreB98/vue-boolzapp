@@ -6,7 +6,8 @@ window.addEventListener("load", function () {
             activeChat: 0,
             isChatOpen: false,
             textInput: "",
-            date: ''
+            date: '',
+            searchInput : ''
         },
         computed: {
 
@@ -46,6 +47,9 @@ window.addEventListener("load", function () {
                     });
                 }, 1000);
 
+            },
+            search(searchInput){
+                return this.usersList.filter((element) => element.name.toLowerCase().includes(searchInput.toLowerCase()));
             }
         }
     })

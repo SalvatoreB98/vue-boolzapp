@@ -240,7 +240,9 @@ i{
 .selected{
     background-color: #d4d4d4e8;
 }
-
+.cursor-pointer{
+    cursor: pointer;
+}
 /* HOVER */
 .chat-preview:hover{
     background-color: #d4d4d4e8;

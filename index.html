@@ -20,7 +20,7 @@
     <main id="vueContainer">
         <section class="left" :class=" isChatOpen ? 'not-active' : 'active' ">
             <div class="top-bar">
-                <div class="user-img-container"> <img src="imgs/avatar_0.jpg" alt="avatar"> </div>
+                <div class="user-img-container"> <img src="imgs/avatar_io1.jpg" alt="avatar"> </div>
                 <div class="flex-grow"></div>
                 <div class="icon-buttons">
                     <i class="fa fa-comment" aria-hidden="true"></i>
@@ -38,16 +38,16 @@
                 </div>
             </div>
             <div class="search-bar p-5px">
-                <label for="search">
+                <label class="cursor-pointer" for="search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                 </label>
                 <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px full-width p-10px"
-                    id="search">
+                    id="search" v-model="searchInput">
             </div>
             <div class="fix scroll">
                 <ul class="chat-list">
-                    <li v-for="(user,index) of usersList" :key="user.id" class="chat-preview p-10px"
-                        @click="setActiveChat(index); chatOpen()" :class=" {'selected' : index == activeChat } ">
+                    <li v-for="(user,index) of search(searchInput)" :key="user.id" class="chat-preview p-10px" v-if=""
+                        @click="setActiveChat(index); chatOpen()" :class=" {'selected' : index == activeChat }">
                         <div class="user-img-container">
                             <img v-bind:src="'imgs/avatar' + user.avatar + '.jpg'" alt="img">
                         </div>
@@ -83,8 +83,8 @@
             <div class="messages-container scroll flex-grow" id="messages-container">
                 <ul>
                     <li class="message-block clearfix full-width" v-for="message of usersList[activeChat].messages"
-                        :key="message.id"  >
-                        <div class="message p-15px" v-bind:class="message.status" >
+                        :key="message.id">
+                        <div class="message p-15px" v-bind:class="message.status">
                             <span> {{ message.text }} </span>
                             <div class="message-time"> {{getTimeHm(message.date)}} </div>
                             <div v-if="message.status=='sent'" class="triangle-sent"></div>
@@ -99,7 +99,8 @@
                     <i class="fa fa-smile-o" aria-hidden="true"></i>
                 </div>
                 <div class="flex-grow padding-l-r">
-                    <input type="text" placeholder="Scrivi un messaggio" class="full-width p-10px" v-model="textInput" @keydown.enter="sendMessage()">
+                    <input type="text" placeholder="Scrivi un messaggio" class="full-width p-10px" v-model="textInput"
+                        @keydown.enter="sendMessage()">
                 </div>
                 <div>
                     <i class="fa fa-microphone" aria-hidden="true"></i>
