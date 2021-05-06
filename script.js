@@ -53,7 +53,7 @@ window.addEventListener("load", function () {
 
             },
             search(searchInput) {
-                return this.usersList.filter((element) => element.name.toLowerCase().includes(searchInput.toLowerCase()));
+                return this.usersList.filter((element) => element.name.toLowerCase().startswith(searchInput.toLowerCase()));
             },
             clickOption(index) {
                 if (this.indexMenuOpen == null) {

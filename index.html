@@ -45,7 +45,7 @@
                 <input type="text" placeholder="Cerca o inizia una nuova chat" class="m-10px full-width p-10px"
                     id="search" v-model="searchInput">
             </div>
-            <div class="fix scroll">
+            <div class="fix scroll">          
                 <ul class="chat-list">
                     <li  v-for="(user,index) of search(searchInput)" :key="user.id" class="chat-preview p-10px" v-if=""
                         @click="setActiveChat(index); chatOpen()" :class=" {'selected' : index == activeChat }">

@@ -9,7 +9,7 @@ ul{
 }
 :root{
     --first-color: #eeeeee ;
-    --second-color: grey ;
+    --write-second-color: #7a7a7a ;
     --sent-color: #d7ffc4 ;
 }
 /* TAGS */
@@ -76,7 +76,6 @@ h4{
 }
 .icon-buttons .fa{
     color: #6666;
-    cursor:not-allowed ;
 }
 .notification-status{
     display: flex;
@@ -116,7 +115,7 @@ h4{
 }
 .last-message{
     font-size: 15px;
-    color: var(--second-color);
+    color: var(--write-second-color);
 }
 .icon-buttons{
     font-size: 20px;
@@ -195,7 +194,7 @@ i{
     right: 7px;
     bottom: 5px;
     font-size: 10px;
-    color: var(--second-color);
+    color: var(--write-second-color);
 
 }
 .option{
@@ -232,7 +231,7 @@ i{
     margin: 10px;
 }
 .second-color{
-    color: var(--second-color);
+    color: var(--write-second-color);
 }
 .full-width{
     width: 100%;
@@ -289,12 +288,6 @@ i{
 .chat-preview:hover{
     background-color: #d4d4d4e8;
 }
-.back-arrow:hover i{
-    color: #535353d3;
-}
-i:hover{
-    color: #535353d3;
-}
 .message:hover .option{
     display: block;
 }
@@ -321,7 +314,7 @@ i:hover{
 @media screen and (max-width:800px) {
     main{
         width: 100vw;
-        height: calc(100vh - 35px);
+        height: 100vh;
     }
     .hidden-xs{
         display: none;
