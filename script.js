@@ -81,11 +81,10 @@ window.addEventListener("load", function () {
                 console.log(this.usersList[this.activeChat].messages[index])
             },
             scroll() {
-                setTimeout(() => {
+                Vue.nextTick(() => {
                     var containerToScroll = this.$refs.toScroll;
                     containerToScroll.scrollTop = containerToScroll.scrollHeight;
-                }, 100)
-
+                  })
             },
             lastAccess(){
                 let filteredReceived = this.usersList[this.activeChat].messages.filter((element) => element.status == 'received' )
