@@ -322,6 +322,7 @@ a:active, .fa:active{
     background: #cecece; 
     border-radius: 10px;
   }
+
 @media screen and (max-width:800px) {
     body{
         min-height: -webkit-fill-available;
@@ -356,7 +357,14 @@ a:active, .fa:active{
     }
     
 }
+@media screen and (min-width:1500px) {
+    main{
+        width: 85%;
+        height: 85vh;
 
+    }
+    
+}
 @media screen and (max-width:320px) {
     .icon-buttons {
         flex-shrink: 1;
