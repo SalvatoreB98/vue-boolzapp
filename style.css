@@ -312,6 +312,9 @@ i{
     border-radius: 10px;
   }
 @media screen and (max-width:800px) {
+    body{
+        min-height: -webkit-fill-available;
+    }
     main{
         width: 100vw;
         min-height: 100vh;
