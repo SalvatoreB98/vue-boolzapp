@@ -82,7 +82,7 @@
                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
             </div>
-            <div class="messages-container scroll flex-grow" id="messages-container">
+            <div class="messages-container scroll flex-grow" ref="toScroll">
                 <ul  v-if="usersList[activeChat].messages.length > 1">
                     <li  class="message-block clearfix full-width"
                         v-for="(message,index) of usersList[activeChat].messages" :key="message.id">

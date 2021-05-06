@@ -80,7 +80,7 @@ window.addEventListener("load", function () {
             },
             scroll() {
                 setTimeout(() => {
-                    var containerToScroll = document.getElementById("messages-container");
+                    var containerToScroll = this.$refs.toScroll;
                     containerToScroll.scrollTop = containerToScroll.scrollHeight;
                 }, 100)
 
