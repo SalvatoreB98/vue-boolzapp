@@ -89,7 +89,16 @@ window.addEventListener("load", function () {
             lastAccess() {
                 let filteredReceived = this.usersList[this.activeChat].messages.filter((element) => element.status == 'received')
                 if (filteredReceived.length > 0) {
-                    return this.getTimeHm(filteredReceived[filteredReceived.length - 1].date);
+                    let date1 = moment()
+                    let date2 = this.usersList[this.activeChat].messages[this.usersList[this.activeChat].messages.length-1 ].date
+                    let time1 = moment(date1).format('YYYY-MM-DD');
+                    let time2 = moment(date2).format('YYYY-MM-DD');
+                    if(time1  == time2){
+                        return 'oggi alle ' + this.getTimeHm(filteredReceived[filteredReceived.length - 1].date);   
+                    }else{
+                        console.log(filteredReceived[filteredReceived.length - 1].date)  
+                        return moment(filteredReceived[filteredReceived.length - 1].date).format('DD/MM/Y');   
+                    }
                 }
                 else {
                     return ' ';

@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 ul{
     list-style-type: none;
@@ -292,14 +293,16 @@ i{
 }
 
 
-/* HOVER */
+/* HOVER  AND ACTIVE*/
 .chat-preview:hover{
     background-color: #d4d4d4e8;
 }
 .message:hover .option{
     display: block;
 }
-
+a:active, .fa:active{
+    color: rgb(128, 186, 240);
+}
 
 
 

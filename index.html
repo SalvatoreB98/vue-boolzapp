@@ -73,7 +73,7 @@
                 <div class="user-img-container"> <img :src="'imgs/avatar_' + activeChat + '.jpg'" alt="avatar"> </div>
                 <div class="flex-grow padding-l-r">
                     <h2 v-if="">{{ usersList[activeChat].name}} </h2>
-                    <div> Ultimo accesso oggi alle {{
+                    <div> Ultimo accesso {{
                         lastAccess() }}</div>
                 </div>
                 <div class="icon-buttons">
@@ -82,6 +82,7 @@
                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
                 </div>
             </div>
+            <!-- CONTAINER OF MESSAGES THAT SCROLLS -->
             <div class="messages-container scroll flex-grow" ref="toScroll">
                 <ul  v-if="usersList[activeChat].messages.length > 0">
                     <li  class="message-block clearfix full-width"
@@ -101,7 +102,6 @@
                                         class="fa fa-trash" aria-hidden="true"></i></div>
                                 <div class="info cursor-pointer"> Info <i class="fa fa-info-circle"
                                         aria-hidden="true"></i> </div>
-
                             </div>
                         </div>
                     </li>
