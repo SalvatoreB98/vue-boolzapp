@@ -117,7 +117,8 @@
                         @keydown.enter="sendMessage()">
                 </div>
                 <div>
-                    <i class="fa fa-microphone" aria-hidden="true"></i>
+                    <i v-if="!textInput" class="fa fa-microphone" aria-hidden="true"></i>
+                    <i v-else @click="sendMessage" class="fa fa-paper-plane" aria-hidden="true"></i>
                 </div>
 
             </div>
