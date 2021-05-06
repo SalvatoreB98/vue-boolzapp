@@ -17,6 +17,7 @@ window.addEventListener("load", function () {
         methods: {
             setActiveChat(id) {
                 this.activeChat = id;
+                this.scroll();
             },
             getTimeHm(date) {
                 return moment(date).format("HH:mm")
@@ -67,6 +68,7 @@ window.addEventListener("load", function () {
                     this.isMenuOpen = false;
                 }
 
+                
             },
             reset() {
                 if (this.isMenuOpen == true) {
@@ -84,7 +86,7 @@ window.addEventListener("load", function () {
                     containerToScroll.scrollTop = containerToScroll.scrollHeight;
                 }, 100)
 
-            }
+            },
         },
         mounted() {
             this.scroll();
