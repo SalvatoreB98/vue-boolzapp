@@ -337,4 +337,7 @@ i{
     .not-active{
         display: none;
     }
+    .notification-status{
+        display: none;
+    }
 }

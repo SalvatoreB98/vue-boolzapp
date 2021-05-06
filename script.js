@@ -84,11 +84,25 @@ window.addEventListener("load", function () {
                 Vue.nextTick(() => {
                     var containerToScroll = this.$refs.toScroll;
                     containerToScroll.scrollTop = containerToScroll.scrollHeight;
-                  })
+                })
             },
-            lastAccess(){
-                let filteredReceived = this.usersList[this.activeChat].messages.filter((element) => element.status == 'received' )
-                return this.getTimeHm(filteredReceived[filteredReceived.length-1].date);
+            lastAccess() {
+                let filteredReceived = this.usersList[this.activeChat].messages.filter((element) => element.status == 'received')
+                if (filteredReceived.length > 0) {
+                    return this.getTimeHm(filteredReceived[filteredReceived.length - 1].date);
+                }
+                else {
+                    return ' ';
+                }
+            },
+            lastMessage(index) {
+                if (this.usersList[index].messages.length > 0) {
+                    let openedMessages = this.usersList[index].messages;
+                    return openedMessages[openedMessages.length - 1]
+                }
+                else {
+                    return ' ';
+                }
             }
         },
         mounted() {

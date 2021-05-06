@@ -54,10 +54,10 @@
                         </div>
                         <div class="p-10px flex-grow">
                             <h3> {{user.name}} </h3>
-                            <div  class="last-message"> {{ user.messages[user.messages.length-1].text }} </div>
+                            <div  class="last-message"> {{ lastMessage(index).text }} </div>
                         </div>
                         <div class="last-message-hour second-color">
-                            {{ getTimeHm(user.messages[user.messages.length-1].date) }}
+                            {{ getTimeHm(lastMessage(index).date) }} 
                         </div>
 
                     </li>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="messages-container scroll flex-grow" ref="toScroll">
-                <ul  v-if="usersList[activeChat].messages.length > 1">
+                <ul  v-if="usersList[activeChat].messages.length > 0">
                     <li  class="message-block clearfix full-width"
                         v-for="(message,index) of usersList[activeChat].messages" :key="message.id">
                         <div class="message p-15px" v-bind:class="message.status">
@@ -105,8 +105,8 @@
                             </div>
                         </div>
                     </li>
-
                 </ul>
+                <div v-else> NON SONO STATI TROVATI MESSAGGI IN QUESTA CHAT</div>
             </div>
             <div class="user-type p-10px">
                 <div>
