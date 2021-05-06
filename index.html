@@ -74,7 +74,7 @@
                 <div class="flex-grow padding-l-r">
                     <h2 v-if="">{{ usersList[activeChat].name}} </h2>
                     <div> Ultimo accesso oggi alle {{
-                        getTimeHm(usersList[activeChat].messages[usersList[activeChat].messages.length-1].date) }}</div>
+                        lastAccess() }}</div>
                 </div>
                 <div class="icon-buttons">
                     <i class="fa fa-search" aria-hidden="true"></i>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="messages-container scroll flex-grow" ref="toScroll">
-                <ul  v-if="">
+                <ul  v-if="usersList[activeChat].messages.length > 1">
                     <li  class="message-block clearfix full-width"
                         v-for="(message,index) of usersList[activeChat].messages" :key="message.id">
                         <div class="message p-15px" v-bind:class="message.status">

@@ -68,7 +68,7 @@ window.addEventListener("load", function () {
                     this.isMenuOpen = false;
                 }
 
-                
+
             },
             reset() {
                 if (this.isMenuOpen == true) {
@@ -87,6 +87,10 @@ window.addEventListener("load", function () {
                 }, 100)
 
             },
+            lastAccess(){
+                let filteredReceived = this.usersList[this.activeChat].messages.filter((element) => element.status == 'received' )
+                return this.getTimeHm(filteredReceived[filteredReceived.length-1].date);
+            }
         },
         mounted() {
             this.scroll();
