@@ -17,12 +17,12 @@ html{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 main{
-    width: 80%;
+    width: 95%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    height: 85vh;
+    height: 95vh;
     background-color: rgb(255, 255, 255);
     display: flex;
     gap: 0;
@@ -119,7 +119,7 @@ h4{
 }
 .icon-buttons{
     font-size: 20px;
-    flex-shrink: 0;
+
 }
 i{
     cursor: pointer;
@@ -281,8 +281,15 @@ i{
 .cursor-pointer{
     cursor: pointer;
 }
-
-
+.yellow-message{
+    background-color: rgb(255, 238, 183);
+    text-align: center;
+    width: auto;
+    font-size: 13px;
+}
+.text-center{
+    text-align: center;
+}
 
 
 /* HOVER */
@@ -341,8 +348,12 @@ i{
     .notification-status{
         display: none;
     }
+    .icon-buttons {
+        flex-shrink: 0;
+    }
     
 }
+
 @media screen and (max-width:320px) {
     .icon-buttons {
         flex-shrink: 1;

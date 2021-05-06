@@ -76,7 +76,7 @@
                     <div> Ultimo accesso oggi alle {{
                         lastAccess() }}</div>
                 </div>
-                <div class="icon-buttons flex-grow">
+                <div class="icon-buttons">
                     <i class="fa fa-search" aria-hidden="true"></i>
                     <i class="fa fa-paperclip" aria-hidden="true"></i>
                     <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
@@ -106,7 +106,7 @@
                         </div>
                     </li>
                 </ul>
-                <div v-else> NON SONO STATI TROVATI MESSAGGI IN QUESTA CHAT</div>
+                <div v-else class="text-center"> <span class="yellow-message p-5px">Nessun messaggio in questa chat</span> </div>
             </div>
             <div class="user-type p-10px">
                 <div>
