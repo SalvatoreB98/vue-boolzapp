@@ -145,6 +145,7 @@ i{
     background-color: var(--first-color);
     z-index: 3;
     box-shadow: 2px 2px 15px #0000004d;
+    border-radius: 10px;
 }
 .message-menu div{
     overflow: hidden;
@@ -156,6 +157,7 @@ i{
     right: 0px;
     transition: transform 0.2s ease-in-out;
     font-size: 20px;
+
 }
 .remove, .info{
     padding: 5px 0;
