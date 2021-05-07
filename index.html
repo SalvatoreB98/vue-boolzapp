@@ -54,7 +54,7 @@
                         </div>
                         <div class="p-10px flex-grow">
                             <h3> {{user.name}} </h3>
-                            <div  class="last-message"> {{ lastMessage(index).text }} </div>
+                            <div  class="last-message"> {{  lastMessageText(index)  }} </div>
                         </div>
                         <div class="last-message-hour second-color">
                             {{ getTimeHm(lastMessage(index).date) }} 

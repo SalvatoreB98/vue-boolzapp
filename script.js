@@ -90,14 +90,14 @@ window.addEventListener("load", function () {
                 let filteredReceived = this.usersList[this.activeChat].messages.filter((element) => element.status == 'received')
                 if (filteredReceived.length > 0) {
                     let date1 = moment()
-                    let date2 = this.usersList[this.activeChat].messages[this.usersList[this.activeChat].messages.length-1 ].date
+                    let date2 = this.usersList[this.activeChat].messages[this.usersList[this.activeChat].messages.length - 1].date
                     let time1 = moment(date1).format('YYYY-MM-DD');
                     let time2 = moment(date2).format('YYYY-MM-DD');
-                    if(time1  == time2){
-                        return 'oggi alle ' + this.getTimeHm(filteredReceived[filteredReceived.length - 1].date);   
-                    }else{
-                        console.log(filteredReceived[filteredReceived.length - 1].date)  
-                        return moment(filteredReceived[filteredReceived.length - 1].date).format('DD/MM/Y');   
+                    if (time1 == time2) {
+                        return 'oggi alle ' + this.getTimeHm(filteredReceived[filteredReceived.length - 1].date);
+                    } else {
+                        console.log(filteredReceived[filteredReceived.length - 1].date)
+                        return moment(filteredReceived[filteredReceived.length - 1].date).format('DD/MM/Y');
                     }
                 }
                 else {
@@ -107,12 +107,23 @@ window.addEventListener("load", function () {
             lastMessage(index) {
                 if (this.usersList[index].messages.length > 0) {
                     let openedMessages = this.usersList[index].messages;
-                    return openedMessages[openedMessages.length - 1]
+                    let lastMessage = openedMessages[openedMessages.length - 1];
+                    return lastMessage;
                 }
                 else {
                     return ' ';
                 }
+            },
+            lastMessageText(index) {
+                if (this.lastMessage(index).text){
+                    if (this.lastMessage(index).text.length > 20) {
+                        return this.lastMessage(index).text.substring(0, 50) + "..."
+                    } else {
+                        return this.lastMessage(index).text;
+                    }
             }
+                }
+                    
         },
         mounted() {
             this.scroll();

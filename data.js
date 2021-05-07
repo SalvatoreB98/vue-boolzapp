@@ -70,9 +70,10 @@ const globalUsersList = [
             },
             {
                 date: '10/03/2021 17:35:00',
-                text: 'Ciao! :)',
+                text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
                 status: 'sent'
             }
+            
         ],
     },
     {
@@ -153,7 +154,7 @@ const globalUsersList = [
             },
             {
                 date: '10/01/2021 15:50:00',
-                text: 'Si, ma preferirei andare al cinema',
+                text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
                 status: 'received'
             }
         ],
