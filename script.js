@@ -37,14 +37,14 @@ window.addEventListener("load", function () {
                         status: 'sent'
                     });
                     this.textInput = '';
-                    this.serverAnswer();
+                    this.serverAnswer(this.activeChat);
                 }
                 this.scroll();
             },
-            serverAnswer() {
+            serverAnswer(chatToAnswer) {
                 setTimeout(() => {
                     let date = moment()
-                    this.usersList[this.activeChat].messages.push({
+                    this.usersList[chatToAnswer].messages.push({
                         date: date,
                         text: "OK!",
                         status: 'received'
@@ -116,7 +116,7 @@ window.addEventListener("load", function () {
             },
             lastMessageText(index) {
                 if (this.lastMessage(index).text){
-                    if (this.lastMessage(index).text.length > 20) {
+                    if (this.lastMessage(index).text.length > 50) {
                         return this.lastMessage(index).text.substring(0, 50) + "..."
                     } else {
                         return this.lastMessage(index).text;
